@@ -1,0 +1,48 @@
+#######################################
+# Syntax Coloring Map For BT201
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+BT201	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+reset	KEYWORD2
+factoryReset	KEYWORD2
+setBaudRate	KEYWORD2
+getFirmwareVersion	KEYWORD2
+setPowerMode	KEYWORD2
+enableLowPowerMode	KEYWORD2
+setVolume	KEYWORD2
+volumeUp	KEYWORD2
+volumeDown	KEYWORD2
+mute	KEYWORD2
+play	KEYWORD2
+pause	KEYWORD2
+nextTrack	KEYWORD2
+prevTrack	KEYWORD2
+playTrack	KEYWORD2
+playFolder	KEYWORD2
+setPlayMode	KEYWORD2
+isPlaying	KEYWORD2
+getCurrentTrackName	KEYWORD2
+getTrackPosition	KEYWORD2
+getTrackDuration	KEYWORD2
+setBluetoothName	KEYWORD2
+setBluetoothPIN	KEYWORD2
+connectDevice	KEYWORD2
+disconnect	KEYWORD2
+answerCall	KEYWORD2
+endCall	KEYWORD2
+redial	KEYWORD2
+setBLEUUID	KEYWORD2
+sendBLEData	KEYWORD2
+sendSPPData	KEYWORD2
+setTrackCallback	KEYWORD2
+setCallCallback	KEYWORD2
+setConnectionCallback	KEYWORD2
+processIncoming	KEYWORD2
