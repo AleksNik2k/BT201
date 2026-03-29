@@ -2,11 +2,12 @@
 
 BT201 bt(10, 11); // RX, TX
 
-void onCall(bool incoming) {
-    Serial.println(incoming ? "Incoming call!" : "Call ended.");
+void onCall(const char* number, void* userData) {
+    Serial.print("Incoming call from: ");
+    Serial.println(number);
 }
 
-void onConnection(bool connected) {
+void onConnection(bool connected, void* userData) {
     Serial.println(connected ? "Connected!" : "Disconnected.");
 }
 
@@ -16,16 +17,14 @@ void setup() {
     
     bt.setBluetoothName("MyAudioSystem");
     bt.setBluetoothPIN("1234");
+    bt.setBLEName("MyBLEDevice");
+    bt.setBluetoothBackground(true);
     bt.setCallCallback(onCall);
     bt.setConnectionCallback(onConnection);
 }
 
 void loop() {
     bt.processIncoming();
-    bt.play();
-    if (bt.isPlaying()){
-      bt.pause();
-    }
     
     if (Serial.available()) {
         char cmd = Serial.read();
@@ -35,6 +34,12 @@ void loop() {
             case 'a': bt.answerCall(); break;
             case 'e': bt.endCall(); break;
             case 'r': bt.redial(); break;
+            case '1': bt.dialNumber("10086"); break;
+            case '2': bt.setBluetoothAudio(true); break;
+            case '3': bt.setBLE(true); break;
+            case '4': bt.setEDR(true); break;
+            case 's': Serial.println(bt.getBluetoothStatus()); break;
+            case 'n': Serial.println(bt.getCallNumber()); break;
         }
     }
 }

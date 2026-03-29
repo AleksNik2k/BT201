@@ -7,7 +7,8 @@ void setup() {
     bt.begin(115200);
     
     bt.setVolume(20);
-    bt.playFolder("/MUSIC");
+    bt.setPrompt(false); // Disable prompts
+    bt.setMode(1); // Bluetooth mode
 }
 
 void loop() {
@@ -18,10 +19,17 @@ void loop() {
         switch (cmd) {
             case 'p': bt.play(); break;
             case 's': bt.pause(); break;
+            case 't': bt.stop(); break;
             case 'n': bt.nextTrack(); break;
             case 'b': bt.prevTrack(); break;
             case '+': bt.volumeUp(); break;
             case '-': bt.volumeDown(); break;
+            case 'f': bt.fastForward(); break;
+            case 'r': bt.fastBackward(); break;
+            case 'm': bt.setMode(2); break; // U-disk mode
+            case 'c': bt.setMode(3); break; // TF-card mode
+            case 'q': Serial.println(bt.getCurrentTrackName()); break;
+            case 'v': Serial.println(bt.getVolume()); break;
         }
     }
 }
